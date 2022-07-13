@@ -3,20 +3,19 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-import Vant from "vant";
 import "vant/lib/index.css";
-
-Vue.use(Vant);
 
 // 加载全局样式
 import "./styles/index.css";
 
 import "amfe-flexible";
+import Vant, { Button, NavBar ,Form,Field } from "vant";
 
-import { Button } from "vant";
-
+Vue.use(Vant);
 Vue.use(Button);
-
+Vue.use(NavBar);
+Vue.use(Form);
+Vue.use(Field);
 Vue.config.productionTip = false;
 
 new Vue({
