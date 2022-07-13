@@ -4,5 +4,5 @@ module.exports = defineConfig({
   devServer: {
     open: true
   },
-  lintOnSave: true
+  lintOnSave: false,
 })
