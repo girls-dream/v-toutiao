@@ -17,8 +17,8 @@ export default {
 </script>
 <style lang="less">
 .box {
-  width: 200px;
-  height: 200px;
+  width: 2.5rem;
+  height: 2.5rem;
   background: pink;
 }
 </style>
