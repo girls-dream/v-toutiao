@@ -9,13 +9,10 @@ import "vant/lib/index.css";
 import "./styles/index.css";
 
 import "amfe-flexible";
-import Vant, { Button, NavBar ,Form,Field } from "vant";
+import Vant from "vant";
 
 Vue.use(Vant);
-Vue.use(Button);
-Vue.use(NavBar);
-Vue.use(Form);
-Vue.use(Field);
+
 Vue.config.productionTip = false;
 
 new Vue({
