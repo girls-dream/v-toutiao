@@ -91,6 +91,7 @@ export default {
         //提示成功
         this.$toast.success("登录成功");
       } catch (error) {
+        console.log(error)
         const status = error.response.status;
         let message = "登陆错误请刷新";
         if (status === 400) {

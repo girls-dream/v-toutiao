@@ -10,13 +10,13 @@ export default {
     return {}
   },
   created() {
-    console.dir(request)
+    // console.dir(request)
   },
 }
 </script>
 <style lang="less">
-* {
-  margin: 0;
-  padding: 0;
-}
+// * {
+//   margin: 0;
+//   padding: 0;
+// }
 </style>

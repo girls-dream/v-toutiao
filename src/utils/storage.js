@@ -5,7 +5,6 @@ class Storage {
     }
     localStorage.setItem(key,value)
   }
-
   get(key) {
     const value = localStorage.getItem(key)
     try {
@@ -14,7 +13,6 @@ class Storage {
       return value
     }
   }
-
   remove(key) {
     localStorage.removeItem(key)
   }
