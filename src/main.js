@@ -10,8 +10,9 @@ import "./styles/index.css";
 
 import "amfe-flexible";
 import Vant from "vant";
-
 Vue.use(Vant);
+import dayjs from 'dayjs'
+console.log(dayjs().format('YYYY/MM/DD HH:mm:ss'));
 
 Vue.config.productionTip = false;
 

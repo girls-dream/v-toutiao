@@ -1,22 +1,22 @@
 class Storage {
   set(key, value) {
-    if (typeof value==='object') {
-      value=JSON.stringify(value)
+    if (typeof value === "object") {
+      value = JSON.stringify(value);
     }
-    localStorage.setItem(key,value)
+    localStorage.setItem(key, value);
   }
   get(key) {
-    const value = localStorage.getItem(key)
+    const value = localStorage.getItem(key);
     try {
-      return JSON.parse(value)
+      return JSON.parse(value);
     } catch (error) {
-      return value
+      return value;
     }
   }
   remove(key) {
-    localStorage.removeItem(key)
+    localStorage.removeItem(key);
   }
 }
-const storage = new Storage()
+const storage = new Storage();
 console.log(storage);
-export default storage
+export default storage;
