@@ -11,9 +11,10 @@ export const getAllChannels = () => {
     url: "/v1_0/channels",
   });
 };
-export const delChannels = () => {
+//删除
+export const delChannels = (target) => {
   return request({
-    url: `/v1_0/comment/likings/:${target}`,
+    url: `/v1_0/user/channels/${target}`,
     method: "DELETE",
   });
 };

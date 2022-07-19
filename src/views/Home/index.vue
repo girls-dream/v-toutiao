@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <van-nav-bar class="navbar">
       <template #title>
-        <van-button round>
+        <van-button round @click="$router.push('/search')">
           <van-icon name="search">搜索</van-icon>
         </van-button>
       </template>
@@ -62,9 +62,11 @@ export default {
             this.myChannerls = myChannels;
           } else {
             const { data } = await getMyChannerls();
-            console.log(data, 111111111);
             this.myChannerls = data.data.channels;
           }
+        } else {
+          const { data } = await getMyChannerls();
+          this.myChannerls = data.data.channels;
         }
       } catch (error) {
         this.$toast.fail("请重新获取频道列表");
@@ -83,7 +85,8 @@ export default {
         console.log(this.myChannerls);
       } else {
         try {
-          await delChannels(id);
+          const res = await delChannels(id);
+          console.log(res);
         } catch (error) {
           return this.$toast.fail("删除用户频道失败");
         }

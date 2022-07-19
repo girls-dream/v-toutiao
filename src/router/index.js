@@ -13,6 +13,10 @@ const routes = [
     component: () => import('@/views/Login')
   },
   {
+    path: '/search',
+    component: () => import('@/views/Search')
+  },
+  {
     path: '/ ',
     component: () => import('@/views/Layout'),
     children: [
