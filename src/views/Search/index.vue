@@ -5,7 +5,7 @@
         v-model="value"
         show-action
         placeholder="请输入搜索关键词"
-        @search="onSearch"
+        @search="onSearch(value)"
         @cancel="backToPrePage"
         background="#3296fa"
         class="search"
@@ -16,7 +16,15 @@
     <!-- <SearchSuggestion></SearchSuggestion>
     <SearchResult></SearchResult>
     <SearchHistory></SearchHistory> -->
-    <component :is="comName" :value="value"></component>
+    <component
+      @determine="determine"
+      @clickFn="onSearch"
+      @del="del"
+      @delAll="delAll"
+      :is="comName"
+      :value="value"
+      :history="history"
+    ></component>
   </div>
 </template>
 
@@ -28,21 +36,22 @@ export default {
   data() {
     return {
       value: "",
-      // isEnter: false,
+      isEnter: "",
+      history:JSON.parse(localStorage.getItem("HIS"))|| [],
     };
   },
   computed: {
     comName() {
       //搜索框没有值或者为空字符串
       if (this.value.trim() == "") {
-        return 'SearchHistory'
+        return "SearchHistory";
       }
       //搜索框有无摁下回车
       if (this.isEnter) {
-        return 'SearchResult'
+        return "SearchResult";
       }
-      return 'SearchSuggestion'
-    }
+      return "SearchSuggestion";
+    },
   },
   components: {
     SearchSuggestion,
@@ -50,15 +59,35 @@ export default {
     SearchHistory,
   },
   methods: {
-    onSearch() {
-      this.isEnter=true
-      console.log(1);
+    onSearch(value) {
+      this.isEnter = true;
+      this.value = value;
+      const index = this.history.indexOf(value);
+      console.log(index);
+      if (index !== -1) {
+        this.history.splice(index, 1);
+      }
+      this.history.unshift(value);
+      console.log(this.history);
+      localStorage.setItem("HIS", JSON.stringify(this.history));
     },
     backToPrePage() {
       this.$router.go(-1);
     },
     vsSearchSuggestion() {
       this.isEnter = false;
+    },
+    delAll() {
+      this.history = [];
+    },
+    del(value) {
+      const index = this.history.indexOf(value);
+      this.history.splice(index, 1);
+    },
+    //点击历史跳转结果页面
+    determine(value) {
+      this.value = value;
+      this.onSearch(value);
     },
   },
 };

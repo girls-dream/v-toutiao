@@ -1,6 +1,10 @@
 <template>
   <div>
-    <van-cell v-for="(item, index) in highlightData" :key="index">
+    <van-cell
+      v-for="(item, index) in highlightData"
+      :key="index"
+      @click="clickFn(index)"
+    >
       <template #icon>
         <van-icon name="search" class="search" />
       </template>
@@ -41,7 +45,7 @@ export default {
     async getSearchSuggestion() {
       try {
         const res = await getSearchSuggestion(this.value);
-        console.log(res);
+        // console.log(res);
         if (res.data.data.options.length === 0) {
           this.$toast.fail("没有搜索建议");
         }
@@ -50,6 +54,9 @@ export default {
         console.log(error);
       }
     },
+    clickFn(index) {
+      this.$emit("clickFn",this.suggestions[index])
+    }
   },
   computed: {
     highlightData() {

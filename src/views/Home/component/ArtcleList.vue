@@ -3,7 +3,7 @@
     <van-pull-refresh
       v-model="refreshLoading"
       @refresh="loadNextPage"
-      :success-text='success'
+      :success-text="success"
     >
       <van-list
         @load="loadNextPage"
@@ -15,7 +15,7 @@
         finished-text="没有更多了~~~"
       >
         <ArtcleListItem
-          v-for="item,index in articles"
+          v-for="(item, index) in articles"
           :key="index"
           :articleInfo="item"
         ></ArtcleListItem>
@@ -36,7 +36,7 @@ export default {
       isFinished: false,
       error: false,
       refreshLoading: false,
-      success:'刷新成功'
+      success: "刷新成功",
     };
   },
   components: {
@@ -70,14 +70,14 @@ export default {
     },
     async loadNextPage() {
       try {
-        if (Math.random() < 0.3) {
+        if (Math.random() < 0.5) {
           throw new Error("错误了");
         }
         const { data } = await getArtcleList(this.id, this.pre_timestamp);
         // console.log(data);
         if (!data.data.pre_timestamp) {
           this.isFinished = true;
-this.success='暂无更多'
+          this.success = "暂无更多";
           return;
         }
         if (this.refreshLoading) {
