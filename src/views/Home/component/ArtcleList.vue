@@ -18,6 +18,7 @@
           v-for="(item, index) in articles"
           :key="index"
           :articleInfo="item"
+          @Art="goDetail(item.art_id)"
         ></ArtcleListItem>
       </van-list>
     </van-pull-refresh>
@@ -26,7 +27,8 @@
 
 <script>
 import ArtcleListItem from "./ArtcleListItem.vue";
-import { getArtcleList } from "@/api";
+import {getArtcleList} from "@/api";
+
 export default {
   data() {
     return {
@@ -60,6 +62,7 @@ export default {
         this.pre_timestamp = data.data.pre_timestamp;
         this.articles = data.data.results;
       } catch (error) {
+        console.log(error);
         const status = error.response.status;
         if (status === 400) {
           throw new Error(error.response.data.message);
@@ -95,6 +98,10 @@ export default {
         this.refreshLoading = false;
       }
     },
+    goDetail(id) {
+      console.log(id);
+      this.$router.push('/detail/'+id)
+    }
   },
 };
 </script>

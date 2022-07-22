@@ -21,6 +21,10 @@ const routes = [
     component: () => import('@/views/Edit')
   },
   {
+    path: '/detail/:keyword',
+    component: () => import('@/views/Detail')
+  },
+  {
     path: '/ ',
     component: () => import('@/views/Layout'),
     children: [

@@ -18,5 +18,5 @@ class Storage {
   }
 }
 const storage = new Storage();
-console.log(storage);
+// console.log(storage);
 export default storage;

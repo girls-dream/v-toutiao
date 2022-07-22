@@ -37,3 +37,17 @@ export const getUserInfo = () => {
     },
   });
 };
+//获取用户信息
+export const getEditUser = () => {
+  return request({
+    url: "/v1_0/user/profile",
+  });
+};
+// 编辑用户信息
+export const EditUser = (data) => {
+  return request({
+    url: "/v1_0/user/profile",
+    method: 'PATCH',
+    data
+  });
+};

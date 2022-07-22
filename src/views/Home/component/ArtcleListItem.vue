@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="art">
     <van-cell
       :title="articleInfo.title"
       :label="artcleDesc"
@@ -41,6 +41,7 @@
 
 <script>
 import dayjs from '@/utils/dayjs'
+// import getArticle from '@/api'
 export default {
   props: {
     articleInfo: {
@@ -55,6 +56,12 @@ export default {
       return `${art.aut_name} ${art.comm_count}评论 ${relativeTime}`
     },
   },
+  methods: {
+    art() {
+      this.$emit('Art')
+    },
+    
+  }
 };
 </script>
 

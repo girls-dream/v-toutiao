@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { getEditUser } from "@/api";
 export default {};
 </script>
 

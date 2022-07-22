@@ -19,9 +19,12 @@ import EditnickAvatar from "@/views/Edit/component/EditnickAvatar.vue";
 import Editnickname from "@/views/Edit/component/Editnickname.vue";
 import EditnickSex from "@/views/Edit/component/EditnickSex.vue";
 import EditnickBirthday from "@/views/Edit/component/EditnickBirthday.vue";
+
 export default {
   data() {
-    return {};
+    return {
+      
+    };
   },
   components: {
     EditnickAvatar,
@@ -33,7 +36,9 @@ export default {
     backPage() {
       this.$router.back();
     },
+    
   },
+  
 };
 </script>
 

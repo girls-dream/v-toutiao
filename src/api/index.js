@@ -4,3 +4,5 @@ export * from './channel'
 
 export * from './new'
 export * from './search'
+export * from './article'
+

@@ -13,8 +13,13 @@
       :key="item"
       :title="item"
       @click="determine(index)"
+      :style="{ 'pointer-events': isShow ? 'none' : 'auto' }"
     >
-      <div class="x" @click="del">
+      <div
+        class="x"
+        @click="del"
+        style="pointer-events:auto"
+      >
         <van-icon name="close" v-if="isShow"></van-icon>
       </div>
     </van-cell>
