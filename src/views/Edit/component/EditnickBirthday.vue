@@ -73,7 +73,7 @@ export default {
   created() {
     this.getEditUser();
     this.currentDate = new Date(this.timeList);
-    console.log(this.currentDate);
+    // console.log(this.currentDate);
   },
 };
 </script>
