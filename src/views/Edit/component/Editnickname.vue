@@ -59,7 +59,8 @@ export default {
     async getEditUser() {
       const { data } = await getEditUser();
       this.ninckNameList = data.data;
-      // console.log(this.ninckNameList);
+      console.log(this.ninckNameList);
+      this.$store.state.photo=data.data.photo
       this.message = this.ninckNameList.name;
       // console.log(this.ninckNameList);
       // this.gender = [data.data.gender ? "男" : "女"];

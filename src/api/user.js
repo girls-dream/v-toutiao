@@ -51,3 +51,11 @@ export const EditUser = (data) => {
     data
   });
 };
+//编辑头像
+export const Avatar = (data) => {
+  return request({
+    url: "/v1_0/user/photo",
+    method: 'PATCH',
+    data
+  });
+};

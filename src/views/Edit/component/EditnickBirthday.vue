@@ -63,6 +63,7 @@ export default {
       const { data } = await getEditUser();
       // console.log(data.data.birthday);
       this.timeList = data.data.birthday;
+      // console.log(this.timeList);
       this.timeList = moment(this.timeList).format("YYYY-MM-DD");
       // console.log(this.timeList);
       this.currentDate = moment(this.currentDate).format("YYYY-MM-DD");
